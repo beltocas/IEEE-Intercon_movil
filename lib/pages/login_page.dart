@@ -1,6 +1,6 @@
-// ignore_for_file: deprecated_member_use
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
+import 'package:intercon_app/pages/inicio_page.dart';
 
 const _url = 'https://www.intercon.org.pe/2022/';
 
@@ -30,7 +30,26 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: EdgeInsets.only(top: 50),
+                margin: EdgeInsets.only(top: 0, right: 300),
+                child: FlatButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => InicioPage()),
+                    );
+                  },
+                  child: SizedBox(
+                    height: 35,
+                    width: 35,
+                    child: Image.asset(
+                      'assets/images/boton-atras.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 40),
                 child: SizedBox(
                   height: 100,
                   width: 200,
@@ -41,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 50, bottom: 30),
+                margin: EdgeInsets.only(top: 100, bottom: 80),
                 child: SizedBox(
                   height: 100,
                   width: 150,
@@ -77,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 width: 300,
                 height: 45,
-                margin: EdgeInsets.only(top: 45),
+                margin: EdgeInsets.only(top: 65),
                 decoration: BoxDecoration(
                   color: Color(0xffb076f77),
                   borderRadius: BorderRadius.circular(10),
