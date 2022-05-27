@@ -1,18 +1,17 @@
-import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
-import 'package:intercon_app/pages/inicio_page.dart';
-import 'package:intercon_app/pages/restorepassword_page.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:intercon_app/pages/login_page.dart';
 
 const _url = 'https://www.intercon.org.pe/2022/';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RestorePasswordPage extends StatefulWidget {
+  const RestorePasswordPage({Key? key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RestorePasswordPageState createState() => _RestorePasswordPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RestorePasswordPageState extends State<RestorePasswordPage> {
   TextEditingController email = new TextEditingController();
   TextEditingController password = new TextEditingController();
 
@@ -31,12 +30,12 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: EdgeInsets.only(top: 0, right: 300),
+                margin: EdgeInsets.only(bottom: 40, right: 300),
                 child: FlatButton(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => InicioPage()),
+                      MaterialPageRoute(builder: (context) => LoginPage()),
                     );
                   },
                   child: SizedBox(
@@ -50,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 40),
+                margin: EdgeInsets.only(bottom: 100),
                 child: SizedBox(
                   height: 100,
                   width: 200,
@@ -61,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 100, bottom: 80),
+                margin: EdgeInsets.only(bottom: 130),
                 child: SizedBox(
                   height: 100,
                   width: 150,
@@ -72,41 +71,15 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(left: 50, right: 50, bottom: 35),
+                margin: EdgeInsets.only(left: 50, right: 50, bottom: 100),
                 child: TextField(
                     controller: email,
-                    decoration: InputDecoration(hintText: "Username")),
-              ),
-              Container(
-                margin: EdgeInsets.only(left: 50, right: 50, bottom: 10),
-                child: TextField(
-                    controller: password,
-                    obscureText: true,
-                    decoration: InputDecoration(hintText: "Password")),
-              ),
-              Container(
-                margin: EdgeInsets.only(left: 150),
-                child: FlatButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => RestorePasswordPage()),
-                    );
-                  },
-                  child: Text(
-                    "Forgot Password?",
-                    style: TextStyle(
-                        color: Color(0xffb0979797),
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
+                    decoration: InputDecoration(hintText: "Email")),
               ),
               Container(
                 width: 300,
                 height: 45,
-                margin: EdgeInsets.only(top: 65),
+                margin: EdgeInsets.only(top: 0, bottom: 40),
                 decoration: BoxDecoration(
                   color: Color(0xffb076f77),
                   borderRadius: BorderRadius.circular(10),
@@ -114,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: FlatButton(
                   onPressed: () {},
                   child: Text(
-                    "Login",
+                    "Enviar",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
@@ -123,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 20),
+                margin: EdgeInsets.only(bottom: 20),
                 child: RaisedButton(
                   onPressed: _launchURL,
                   color: Colors.white.withOpacity(1),
